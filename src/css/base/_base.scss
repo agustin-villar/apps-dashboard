@@ -1,0 +1,7 @@
+@import "../abstract/variables";
+
+body {
+  background: $white;
+  display: flex;
+  flex-direction: column;
+}
