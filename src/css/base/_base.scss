@@ -1,5 +1,8 @@
 body {
-  background: $white;
-  display: flex;
-  flex-direction: column;
+    background-color: $white;
+    display: flex;
+    flex-direction: column;
+    font: 400 1rem $main-font-family;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
