@@ -9,3 +9,7 @@
         @content;
     }
 }
+
+@function get-spacing ($ratio) {
+    @return $ratio * $base-spacing;
+}

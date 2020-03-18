@@ -1,8 +1,19 @@
+html {
+    font-size: 10px;
+}
+
 body {
-    background-color: $white;
+    background-color: $light-grey;
     display: flex;
     flex-direction: column;
-    font: 400 1rem $main-font-family;
+    font: 400 1.6rem $main-font-family;
+    line-height: 1.2;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+p {
+    margin: 0;
 }
