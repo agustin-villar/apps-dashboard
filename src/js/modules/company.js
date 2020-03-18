@@ -5,7 +5,7 @@ class Company {
     }
 
     start() {
-        alert(this.name);
+        console.log(this.name);
     }
 }
 
