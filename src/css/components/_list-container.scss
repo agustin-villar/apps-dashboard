@@ -1,10 +1,40 @@
 .list-container {
+    display: -ms-grid;
     display: grid;
     grid-row-gap: get-spacing(2);
 
     @include tablet {
+        -ms-grid-columns: 1fr #{get-spacing(4)} 1fr;
+        -ms-grid-rows: #{"1fr (#{get-spacing(4)} 1fr)[2]"};
         grid-template-columns: 1fr 1fr;
         grid-column-gap: get-spacing(4);
         grid-row-gap: get-spacing(4);
+    }
+
+    // TODO: nice to have a loop to generate the rows rules based on the amount of rows and columns needed
+    .host-card {
+        &:nth-child(odd) {
+            -ms-grid-column: 1;
+        }
+
+        &:nth-child(even) {
+            -ms-grid-column: 3;
+        }
+
+        &:nth-child(2n + 3) {
+            -ms-grid-row: 3;
+        }
+
+        &:nth-child(2n + 4) {
+            -ms-grid-row: 3;
+        }
+
+        &:nth-child(2n + 5) {
+            -ms-grid-row: 5;
+        }
+
+        &:nth-child(2n + 6) {
+            -ms-grid-row: 5;
+        }
     }
 }
