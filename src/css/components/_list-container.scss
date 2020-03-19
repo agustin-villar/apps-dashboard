@@ -1,0 +1,10 @@
+.list-container {
+    display: grid;
+    grid-row-gap: get-spacing(2);
+
+    @include tablet {
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: get-spacing(4);
+        grid-row-gap: get-spacing(4);
+    }
+}

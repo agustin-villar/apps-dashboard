@@ -1,6 +1,6 @@
 .host-card {
     background: $white;
-    padding: get_spacing(2);
+    padding: get_spacing(3);
 
     &__heading {
         margin-bottom: get-spacing(2);
@@ -13,6 +13,7 @@
     }
 
     &__list-item {
+        display: flex;
         margin-bottom: get-spacing(2);
 
         &:last-child {

@@ -1,0 +1,53 @@
+.apps-list-page {
+    margin: 0 auto;
+    padding: #{get-spacing(5)} 0;
+    width: calc(100% - #{get-spacing(4)});
+
+    @include desktop {
+        max-width: $max-desktop-width;
+        padding: #{get-spacing(8)} 0;
+        width: calc(100% - #{get-spacing(8)});
+    }
+}
+
+.page-header {
+    margin-bottom: get-spacing(4);
+    display: flex;
+    flex-direction: column;
+
+    &__heading {
+        font-size: 3.5rem;
+        margin-bottom: get-spacing(2);
+    }
+
+    &__user-name {
+        font-size: 1.6rem;
+    }
+
+    &__list-mode-toggle {
+        display: none;
+    }
+
+    @include tablet {
+        align-items: baseline;
+        flex-direction: row;
+
+        &__heading {
+            margin-right: get-spacing(2);
+        }
+
+        &__user-name {
+            font-size: 1.8rem;
+        }
+
+        &__list-mode-toggle {
+            display: block;
+            font-size: 1.4rem;
+            margin-left: auto;
+
+            &__input {
+                margin-right: get-spacing(1);
+            }
+        }
+    }
+}
