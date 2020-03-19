@@ -1,9 +1,9 @@
-import Company from './modules/company';
+import ListToggle from './modules/listToggle';
 
-const myCompany = new Company('my great company');
+const myToggle = new ListToggle();
 
 function startMeUp() {
-    myCompany.start();
+    myToggle.init();
 }
 
 window.addEventListener('load', startMeUp);
