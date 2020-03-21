@@ -1,0 +1,12 @@
+// Load CSS Reset from node modules
+@import "~normalize.css";
+
+// mixins
+@import "./mixins/mixins";
+
+// main imports
+@import "./abstract/variables";
+@import "./base/base";
+@import "./pages/apps-list";
+@import "./components/host-card";
+@import "./components/list-container";

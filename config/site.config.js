@@ -24,7 +24,7 @@ const config = {
     favicon: '',
 
     // Local development URL
-    dev_host: 'localhost',
+    dev_host: process.env.HOST || '0.0.0.0',
 
     // Local development port
     port: process.env.PORT || 8000,

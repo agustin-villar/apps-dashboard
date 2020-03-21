@@ -1,0 +1,37 @@
+.host-card {
+    background: $white;
+    padding: get_spacing(3);
+
+    &__heading {
+        font-size: 1.6rem;
+        margin-bottom: get-spacing(2);
+    }
+
+    &__list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    &__list-item {
+        display: flex;
+        margin-bottom: get-spacing(2);
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__apex-index {
+        color: $dark-grey;
+        font-size: 1.3rem;
+        font-weight: bold;
+        line-height: 1.5;
+        margin-right: get-spacing(2);
+        opacity: 0.62;
+    }
+
+    @include desktop {
+        padding: get_spacing(4);
+    }
+}

@@ -8,7 +8,7 @@ module.exports = {
     context: path.join(config.root, config.paths.src),
     entry: [
         path.join(config.root, config.paths.src, 'js/main.js'),
-        path.join(config.root, config.paths.src, 'css/styles.scss'),
+        path.join(config.root, config.paths.src, 'css/main.scss'),
     ],
     output: {
         path: path.join(config.root, config.paths.dist),
@@ -25,6 +25,7 @@ module.exports = {
         watchContentBase: true,
         hot: true,
         open: true,
+        public: `localhost:${config.port}`,
         port: config.port,
         host: config.dev_host,
     },
