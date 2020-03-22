@@ -1,8 +1,13 @@
+import { mergeSort } from '../utils/utils';
+
 class AppsList {
     constructor(id, apps) {
         this.id = id;
         this.apps = apps;
         this.renderLimit = 5;
+
+        this.list = document.createElement('OL');
+        this.list.classList.add('host-card__list');
     }
 
     renderList() {
@@ -14,10 +19,22 @@ class AppsList {
         heading.classList.add('host-card__heading');
         heading.innerText = this.id;
 
-        const list = document.createElement('OL');
-        list.classList.add('host-card__list');
+        this.printListItems();
 
-        for (let i = 0; i < this.renderLimit; i += 1) {
+        card.appendChild(heading);
+        card.appendChild(this.list);
+
+        return card;
+    }
+
+    printListItems() {
+        if (this.list.childNodes.length) {
+            this.list.innerHTML = '';
+        }
+
+        const limit = this.apps.length < this.renderLimit ? this.apps.length : this.renderLimit;
+
+        for (let i = 0; i < limit; i += 1) {
             const { name, apdex, version } = this.apps[i];
 
             const listElement = document.createElement('LI');
@@ -32,17 +49,23 @@ class AppsList {
 
             listElement.appendChild(apdexSpan);
             listElement.appendChild(appName);
-            list.appendChild(listElement);
+            this.list.appendChild(listElement);
         }
-
-        card.appendChild(heading);
-        card.appendChild(list);
-
-        return card;
     }
 
-    static sortByApdex({ apdex: apdexA }, { apdex: apdexB }) {
-        return apdexB - apdexA;
+    addApplication({ name, version, apdex }) {
+        const newApp = { name, version, apdex };
+        this.apps = mergeSort([...this.apps, newApp], 'apdex').slice(0, 25);
+        this.printListItems();
+    }
+
+    hasApplication(appName, appVersion) {
+        return this.apps.some(({ name, version }) => name === appName && version === appVersion);
+    }
+
+    updateApplications(apps) {
+        this.apps = apps;
+        this.printListItems();
     }
 }
 
