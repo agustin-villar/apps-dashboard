@@ -5,7 +5,7 @@
 
     @include tablet {
         -ms-grid-columns: 1fr #{get-spacing(4)} 1fr;
-        -ms-grid-rows: #{"1fr (#{get-spacing(4)} 1fr)[2]"};
+        -ms-grid-rows: #{"1fr (#{get-spacing(4)} 1fr)[4]"};
         grid-template-columns: 1fr 1fr;
         grid-column-gap: get-spacing(4);
         grid-row-gap: get-spacing(4);
@@ -34,6 +34,22 @@
 
             &:nth-child(2n + 6) {
                 -ms-grid-row: 5;
+            }
+
+            &:nth-child(2n + 7) {
+                -ms-grid-row: 7;
+            }
+
+            &:nth-child(2n + 8) {
+                -ms-grid-row: 7;
+            }
+
+            &:nth-child(2n + 9) {
+                -ms-grid-row: 9;
+            }
+
+            &:nth-child(2n + 10) {
+                -ms-grid-row: 9;
             }
         }
 
