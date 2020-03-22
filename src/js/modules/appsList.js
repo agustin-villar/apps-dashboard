@@ -1,7 +1,9 @@
+import { mergeSort } from '../utils/utils';
+
 class AppsList {
     constructor(id, apps) {
         this.id = id;
-        this.apps = apps.sort(AppsList.sortByApdex);
+        this.apps = mergeSort(apps, 'apdex');
         this.renderLimit = 5;
     }
 
