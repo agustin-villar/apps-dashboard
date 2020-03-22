@@ -16,10 +16,6 @@ class AppsPage {
             this.hostsLists.push(hostList);
             this.listContainer.appendChild(hostList.renderList());
         });
-
-        this.removeAppFromHosts({
-            name: 'Intelligent Concrete Bike - Kris - Kemmer, and Sons', version: 5,
-        });
     }
 
     loadApps() {
@@ -53,6 +49,19 @@ class AppsPage {
         return mergeSort(apps, 'apdex').slice(0, appsAmount);
     }
 
+    getHostListById(hostId) {
+        let hostList;
+
+        for (let i = 0, j = this.hostsLists.length; i < j; i += 1) {
+            if (this.hostsLists[i].id === hostId) {
+                hostList = this.hostsLists[i];
+                break;
+            }
+        }
+
+        return hostList;
+    }
+
     addAppToHosts(app) {
         const { host, name, apdex, version } = app;
 
@@ -78,19 +87,6 @@ class AppsPage {
                 hostList.updateApplications(this.getTopAppsByHost(hostList.id));
             }
         });
-    }
-
-    getHostListById(hostId) {
-        let hostList;
-
-        for (let i = 0, j = this.hostsLists.length; i < j; i += 1) {
-            if (this.hostsLists[i].id === hostId) {
-                hostList = this.hostsLists[i];
-                break;
-            }
-        }
-
-        return hostList;
     }
 }
 
