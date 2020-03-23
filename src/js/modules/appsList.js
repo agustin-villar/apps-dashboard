@@ -41,7 +41,7 @@ class AppsList {
             const showTooltipButton = document.createElement('BUTTON');
             showTooltipButton.classList.add('host-card__show-tooltip-button');
             showTooltipButton.type = 'button';
-            showTooltipButton.addEventListener('click', () => this.versionModal.openModal(version, name));
+            showTooltipButton.addEventListener('click', () => this.versionModal.openModal(name, version));
 
             const appName = document.createTextNode(name);
 

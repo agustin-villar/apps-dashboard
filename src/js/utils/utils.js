@@ -1,5 +1,3 @@
-/* TODO document methods, nice to have unit tests for these methods */
-
 /**
  * @param  {[*]} sourceArray - Array to remove duplicates from
  * @return {[*]} An array without duplicated elements
