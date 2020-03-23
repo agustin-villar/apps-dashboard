@@ -1,9 +1,6 @@
 import AppsPage from './modules/appsPage';
 
-const appsPage = new AppsPage();
+const appsPage = new AppsPage('amauro85@gmail.com');
 
-function startMeUp() {
-    appsPage.loadApps();
-}
-
-window.addEventListener('load', startMeUp);
+/* entry point */
+window.addEventListener('load', () => appsPage.loadData());

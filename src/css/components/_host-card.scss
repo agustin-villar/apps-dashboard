@@ -1,9 +1,11 @@
+$apdex-opacity: 0.62;
+
 .host-card {
     background: $white;
     padding: get_spacing(3);
 
     &__heading {
-        font-size: 1.6rem;
+        font-size: $body-size;
         margin-bottom: get-spacing(2);
     }
 
@@ -25,12 +27,12 @@
     &__apdex-index {
         color: $dark-grey;
         flex: 0 0 2.4rem;
-        font-size: 1.3rem;
+        font-size: $small;
         font-weight: bold;
         line-height: 1.5;
         margin-right: get-spacing(2);
         text-align: right;
-        opacity: 0.62;
+        opacity: $apdex-opacity;
     }
 
     &__show-tooltip-button {

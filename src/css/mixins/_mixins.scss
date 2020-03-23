@@ -10,6 +10,7 @@
     }
 }
 
+// Returns spacing based on the  8pt grid ratio.
 @function get-spacing ($ratio) {
     @return $ratio * $base-spacing;
 }
