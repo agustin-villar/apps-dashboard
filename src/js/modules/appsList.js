@@ -1,5 +1,6 @@
 import { mergeSort } from '../utils/utils';
 import ModalBox from './modalBox';
+import { NUMBER_OF_APPS_BY_CARD } from '../config/config';
 
 /**
  * AppsList class, creates an object that stores a list of applications belonging to a host
@@ -13,7 +14,6 @@ class AppsList {
     constructor(id, apps) {
         this.id = id;
         this.apps = apps;
-        this.renderLimit = 5;
 
         this.list = document.createElement('OL');
         this.list.classList.add('host-card__list');
@@ -26,7 +26,7 @@ class AppsList {
             this.list.innerHTML = '';
         }
 
-        const limit = this.apps.length < this.renderLimit ? this.apps.length : this.renderLimit;
+        const limit = this.apps.length < NUMBER_OF_APPS_BY_CARD ? this.apps.length : NUMBER_OF_APPS_BY_CARD;
 
         for (let i = 0; i < limit; i += 1) {
             const { name, apdex, version } = this.apps[i];
@@ -82,7 +82,7 @@ class AppsList {
      */
     addApplication(newApp) {
         const { name, version, apdex } = newApp;
-        this.apps = mergeSort([...this.apps, { name, version, apdex }], 'apdex').slice(0, 25);
+        this.apps = mergeSort([...this.apps, { name, version, apdex }], 'apdex').slice(0, NUMBER_OF_APPS_BY_CARD);
         this.printListItems();
     }
 

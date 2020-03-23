@@ -1,6 +1,7 @@
 import { mergeSort, removeDuplicatesFromArray } from '../utils/utils';
 import AppsList from './appsList';
 import ListToggle from './listToggle';
+import { ENDPOINT_URL, NUMBER_OF_TOP_APPS } from '../config/config';
 
 /**
  * AppsPage class, which adds the basic functionality for the Applications Page
@@ -9,19 +10,19 @@ import ListToggle from './listToggle';
  */
 class AppsPage {
     constructor(username = '') {
-        this.endpoint = 'host-app-data.json';
         this.listContainer = document.querySelector('#apps-list');
         this.userNameLabel = document.querySelector('#user-name');
         this.data = [];
         this.hostIds = [];
         this.appsLists = [];
         this.listToggle = new ListToggle();
+
         this.userNameLabel.innerHTML = username;
     }
 
     /* loadData - loads the data from the given endpoint */
     loadData() {
-        fetch(this.endpoint)
+        fetch(ENDPOINT_URL)
             .then((response) => response.json())
             .then((data) => {
                 this.data = data;
@@ -59,7 +60,7 @@ class AppsPage {
      * @param  {Number} appsAmount - Number of apps to get
      * @return {[String]} List of unique host ids
      */
-    getTopAppsByHost(hostname, appsAmount = 25) {
+    getTopAppsByHost(hostname, appsAmount = NUMBER_OF_TOP_APPS) {
         const apps = [];
 
         this.data.forEach(({ host, name, version, apdex }) => {
