@@ -1,8 +1,18 @@
 /* TODO document methods, nice to have unit tests for these methods */
 
+/**
+ * @param  {[*]} sourceArray - Array to remove duplicates from
+ * @return {[*]} An array without duplicated elements
+ */
 // eslint-disable-next-line max-len
 const removeDuplicatesFromArray = (sourceArray = []) => sourceArray.filter((item, index) => sourceArray.indexOf(item) === index);
 
+/**
+ * @param  {[Object]} leftArray - leftArray to be merged.
+ * @param  {[Object]} rightArray - rightArray to be merged.
+ * @param  {String} criteria - key name of the property used to sort the arrays.
+ * @return {[Object]} an array merging the left and right arrays.
+ */
 const merge = (leftArray, rightArray, criteria) => {
     const sorted = [];
 
@@ -19,13 +29,13 @@ const merge = (leftArray, rightArray, criteria) => {
         }
     }
 
-    // if left list has items, add what is left to the results
+    // if it still has items, add what's left from the left array to the results.
     while (leftArray.length !== 0) {
         sorted.push(leftArray[0]);
         leftArray.shift();
     }
 
-    // if right list has items, add what is left to the results
+    // if it still has items, add what's left from the right array to the results.
     while (rightArray.length !== 0) {
         sorted.push(rightArray[0]);
         rightArray.shift();
@@ -34,19 +44,25 @@ const merge = (leftArray, rightArray, criteria) => {
     return sorted;
 };
 
+/**
+ * Based on: https://humanwhocodes.com/blog/2012/10/02/computer-science-and-javascript-merge-sort/
+ * and: https://dev.to/wangonya/sorting-algorithms-with-javascript-part-1-4aca
+ * @param  {[Object]} arr - Array to be sorted
+ * @param  {String} criteria - key identifying the criteria by which the array of objects is being sorted.
+ * @return {[Object]} An array of objects ordered from the highest to  the lowest value of the criteria.
+ */
 const mergeSort = (arr, criteria) => {
-    const len = arr.length;
-    // an array of length == 1 is technically a sorted list
-    if (len === 1) {
+    const arrLength = arr.length;
+    if (arrLength === 1) {
         return arr;
     }
 
-    // get pivot
-    const middleIndex = Math.ceil(len / 2);
+    // find the middle index of the array
+    const middleIndex = Math.ceil(arrLength / 2);
 
-    // split current list into two: left and right list
+    // Split the array in two parts
     let leftArray = arr.slice(0, middleIndex);
-    let rightArray = arr.slice(middleIndex, len);
+    let rightArray = arr.slice(middleIndex, arrLength);
 
     leftArray = mergeSort(leftArray, criteria);
     rightArray = mergeSort(rightArray, criteria);

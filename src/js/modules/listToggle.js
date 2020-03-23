@@ -1,3 +1,6 @@
+/**
+ * ListToggle class, creates an ui component that switches the list display mode.
+ */
 class ListToggle {
     constructor() {
         this.listModeClass = 'list-container--list-mode';

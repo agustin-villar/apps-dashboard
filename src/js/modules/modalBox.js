@@ -1,3 +1,7 @@
+/**
+ * ModalBox class, creates a modal like component that renders a title and a description text
+ * It will be displayed over the main html content as an overlay.
+ */
 class ModalBox {
     constructor() {
         this.element = document.querySelector('#modal');
