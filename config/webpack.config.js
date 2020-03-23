@@ -7,6 +7,8 @@ const plugins = require('./webpack.plugins');
 module.exports = {
     context: path.join(config.root, config.paths.src),
     entry: [
+        '@babel/polyfill',
+        'whatwg-fetch',
         path.join(config.root, config.paths.src, 'js/main.js'),
         path.join(config.root, config.paths.src, 'css/main.scss'),
     ],

@@ -22,13 +22,22 @@
         }
     }
 
-    &__apex-index {
+    &__apdex-index {
         color: $dark-grey;
+        flex: 0 0 2.4rem;
         font-size: 1.3rem;
         font-weight: bold;
         line-height: 1.5;
         margin-right: get-spacing(2);
+        text-align: right;
         opacity: 0.62;
+    }
+
+    &__show-tooltip-button {
+        background: transparent;
+        border: 0;
+        cursor: pointer;
+        text-align: left;
     }
 
     @include desktop {

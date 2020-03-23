@@ -1,8 +1,9 @@
 class ListToggle {
     constructor() {
         this.listModeClass = 'list-container--list-mode';
-        this.listElement = null;
-        this.checkbox = null;
+        this.checkbox = document.querySelector('.page-header__list-mode-toggle__input');
+        this.listElement = document.querySelector('.list-container');
+        this.checkbox.addEventListener('click', (e) => this.onListToggleClick(e));
     }
 
     onListToggleClick(e) {
@@ -16,10 +17,8 @@ class ListToggle {
         this.listElement.classList.add(this.listModeClass);
     }
 
-    init() {
-        this.checkbox = document.querySelector('.page-header__list-mode-toggle__input');
-        this.listElement = document.querySelector('.list-container');
-        this.checkbox.addEventListener('click', (e) => { this.onListToggleClick(e); });
+    init(checked = true) {
+        this.checkbox.checked = checked;
     }
 }
 
