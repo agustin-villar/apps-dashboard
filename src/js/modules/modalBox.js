@@ -1,6 +1,6 @@
 /**
- * ModalBox class, creates a modal like component that renders a title and a description text
- * It will be displayed over the main html content as an overlay.
+ * ModalBox class, creates a modal like component that renders the title and a version number for
+ * and application. It will be displayed over the main html content as an overlay.
  */
 class ModalBox {
     constructor() {
