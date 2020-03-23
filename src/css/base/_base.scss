@@ -6,7 +6,7 @@ body {
     background-color: $light-grey;
     display: flex;
     flex-direction: column;
-    font: 400 1.6rem $main-font-family;
+    font: 400 $body-size $main-font-family;
     line-height: 1.2;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
