@@ -5,15 +5,18 @@ import ListToggle from './listToggle';
 /**
  * AppsPage class, which adds the basic functionality for the Applications Page
  * Loads and handles the data to create the required objects to display it on the page
+ * @param {String} username
  */
 class AppsPage {
-    constructor() {
+    constructor(username = '') {
         this.endpoint = 'host-app-data.json';
         this.listContainer = document.querySelector('#apps-list');
+        this.userNameLabel = document.querySelector('#user-name');
         this.data = [];
         this.hostIds = [];
         this.appsLists = [];
         this.listToggle = new ListToggle();
+        this.userNameLabel.innerHTML = username;
     }
 
     /* loadData - loads the data from the given endpoint */
