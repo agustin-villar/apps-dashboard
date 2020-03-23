@@ -33,12 +33,10 @@ class AppsPage {
     }
 
     static getUniqueHostIds(data) {
-        const rawHosts = data.reduce(
-            (acc, { host }) => acc.concat(host),
+        return data.reduce(
+            (acc, { host }) => removeDuplicatesFromArray(acc.concat(host)),
             [],
         );
-
-        return removeDuplicatesFromArray(rawHosts);
     }
 
     getTopAppsByHost(hostname, appsAmount = 25) {
