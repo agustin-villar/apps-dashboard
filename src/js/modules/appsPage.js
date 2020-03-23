@@ -1,13 +1,15 @@
 import { mergeSort, removeDuplicatesFromArray } from '../utils/utils';
 import AppsList from './appsList';
+import ListToggle from './listToggle';
 
 class AppsPage {
     constructor() {
         this.endpoint = 'host-app-data.json';
-        this.data = [];
         this.listContainer = document.querySelector('#apps-list');
+        this.data = [];
         this.hostIds = [];
         this.hostsLists = [];
+        this.listToggle = new ListToggle();
     }
 
     createApps() {
@@ -16,6 +18,8 @@ class AppsPage {
             this.hostsLists.push(hostList);
             this.listContainer.appendChild(hostList.renderList());
         });
+
+        this.listToggle.init();
     }
 
     loadApps() {
