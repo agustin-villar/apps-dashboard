@@ -1,4 +1,5 @@
 import { mergeSort } from '../utils/utils';
+import ModalBox from './modalBox';
 
 class AppsList {
     constructor(id, apps) {
@@ -8,6 +9,7 @@ class AppsList {
 
         this.list = document.createElement('OL');
         this.list.classList.add('host-card__list');
+        this.versionModal = new ModalBox();
     }
 
     renderList() {
@@ -45,10 +47,16 @@ class AppsList {
             apdexSpan.classList.add('host-card__apdex-index');
             apdexSpan.innerText = apdex;
 
+            const showTooltipButton = document.createElement('BUTTON');
+            showTooltipButton.classList.add('host-card__show-tooltip-button');
+            showTooltipButton.type = 'button';
+            showTooltipButton.addEventListener('click', () => this.versionModal.openModal(version, name));
+
             const appName = document.createTextNode(name);
 
+            showTooltipButton.appendChild(appName);
             listElement.appendChild(apdexSpan);
-            listElement.appendChild(appName);
+            listElement.appendChild(showTooltipButton);
             this.list.appendChild(listElement);
         }
     }

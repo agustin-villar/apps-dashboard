@@ -33,6 +33,13 @@
         opacity: 0.62;
     }
 
+    &__show-tooltip-button {
+        background: transparent;
+        border: 0;
+        cursor: pointer;
+        text-align: left;
+    }
+
     @include desktop {
         padding: get_spacing(4);
     }

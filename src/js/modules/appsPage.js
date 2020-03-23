@@ -68,7 +68,7 @@ class AppsPage {
         host.forEach((hostId) => {
             if (this.hostIds.includes(hostId)) {
                 const hostListToUpdate = this.getHostListById(hostId);
-                hostListToUpdate.addApplication({ host, apdex, name });
+                hostListToUpdate.addApplication({ host, apdex, name, version });
             } else {
                 const hostList = new AppsList(hostId, [{ host, apdex, name, version }]);
                 this.hostsLists.push(hostList);
