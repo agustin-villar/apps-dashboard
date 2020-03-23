@@ -1,7 +1,6 @@
 .list-container {
-    display: -ms-grid;
-    display: grid;
-    grid-row-gap: get-spacing(2);
+    display: flex;
+    flex-direction: column;
 
     &:empty {
         display: block;
@@ -12,53 +11,28 @@
         }
     }
 
-    @include tablet {
-        -ms-grid-columns: 1fr #{get-spacing(4)} 1fr;
-        -ms-grid-rows: #{"1fr (#{get-spacing(4)} 1fr)[4]"};
-        grid-template-columns: 1fr 1fr;
-        grid-column-gap: get-spacing(4);
-        grid-row-gap: get-spacing(4);
+    .host-card {
+        margin-bottom: get-spacing(2);
+    }
 
-        // TODO: create a loop to generate the rows rules based on the amount of rows and columns needed
+    @include tablet {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+
         .host-card {
+            box-sizing: border-box;
+            margin-bottom: get-spacing(4);
+            width: calc(50% - #{get-spacing(2)});
+
             &:nth-child(odd) {
-                -ms-grid-column: 1;
+                justify-self: flex-start;
+                margin-right: auto;
             }
 
             &:nth-child(even) {
-                -ms-grid-column: 3;
-            }
-
-            &:nth-child(2n + 3) {
-                -ms-grid-row: 3;
-            }
-
-            &:nth-child(2n + 4) {
-                -ms-grid-row: 3;
-            }
-
-            &:nth-child(2n + 5) {
-                -ms-grid-row: 5;
-            }
-
-            &:nth-child(2n + 6) {
-                -ms-grid-row: 5;
-            }
-
-            &:nth-child(2n + 7) {
-                -ms-grid-row: 7;
-            }
-
-            &:nth-child(2n + 8) {
-                -ms-grid-row: 7;
-            }
-
-            &:nth-child(2n + 9) {
-                -ms-grid-row: 9;
-            }
-
-            &:nth-child(2n + 10) {
-                -ms-grid-row: 9;
+                justify-self: flex-end;
+                margin-left: auto;
             }
         }
 
@@ -67,7 +41,15 @@
             flex-direction: column;
 
             .host-card {
-                margin-bottom: get-spacing(4);
+                width: 100%;
+
+                &:nth-child(odd) {
+                    margin-right: 0;
+                }
+
+                &:nth-child(even) {
+                    margin-left: 0;
+                }
 
                 &:last-child {
                     margin-bottom: 0;
