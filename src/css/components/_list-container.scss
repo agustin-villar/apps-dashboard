@@ -3,6 +3,15 @@
     display: grid;
     grid-row-gap: get-spacing(2);
 
+    &:empty {
+        display: block;
+        min-height: 10rem;
+
+        &::before {
+            content: "Processing data ...";
+        }
+    }
+
     @include tablet {
         -ms-grid-columns: 1fr #{get-spacing(4)} 1fr;
         -ms-grid-rows: #{"1fr (#{get-spacing(4)} 1fr)[4]"};
