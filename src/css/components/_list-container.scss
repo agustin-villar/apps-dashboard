@@ -19,7 +19,7 @@
         grid-column-gap: get-spacing(4);
         grid-row-gap: get-spacing(4);
 
-        // TODO: nice to have a loop to generate the rows rules based on the amount of rows and columns needed
+        // TODO: create a loop to generate the rows rules based on the amount of rows and columns needed
         .host-card {
             &:nth-child(odd) {
                 -ms-grid-column: 1;
