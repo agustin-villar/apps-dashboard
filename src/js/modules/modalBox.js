@@ -7,7 +7,7 @@ class ModalBox {
         this.element = document.querySelector('#modal');
         this.closeButton = document.querySelector('#close-modal');
         this.titleNode = document.querySelector('#modal-title');
-        this.textNode = document.querySelector('#modal-text');
+        this.versionNode = document.querySelector('#modal-text');
         this.closeButton.addEventListener('click', () => this.closeModal());
     }
 
@@ -15,9 +15,14 @@ class ModalBox {
         this.element.classList.remove('modal--open');
     }
 
-    openModal(text, title) {
-        this.textNode.innerHTML = text;
+    /**
+     * Shows the modal and update its content.
+     * @param  {String} version - Version number of the app that triggers the modal
+     * @param  {String} title - Title of the application that triggers the modal
+     */
+    openModal(title, version) {
         this.titleNode.innerHTML = title;
+        this.versionNode.innerHTML = version;
         this.element.classList.add('modal--open');
     }
 }
